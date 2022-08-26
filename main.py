@@ -25,14 +25,13 @@ with col1:
     sulphates=st.text_input('Number of sulphates')
 with col2:
     alcohol=st.text_input('Number of alcohol')
-wine_diagnosis = ''
+wine_prediction = ''
 if st.button('wine Test Result'):
     wine_prediction = wine_model.predict(
         [[fixed_acidity, volatile_acidity ,citric_acid, residual_sugar, chlorides, free_sulphur_dioxide, total_sulphur_dioxide, density, ph, sulphates, alcohol]])
 
     if (wine_prediction[0] == 1):
-        wine_diagnosis = 'Good Quality Wine'
+        wine_prediction = 'Good Quality Wine'
     else:
-        wine_diagnosis = 'Bad Quality Wine'
-st.success(wine_diagnosis)
-
+        wine_prediction = 'Bad Quality Wine'
+st.success(wine_prediction) 
